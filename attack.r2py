@@ -1,0 +1,19 @@
+# Open a file
+myfile=openfile("look.txt", True)
+ 
+# Attempt to read a mix of upper case and lower case
+try:
+    myfile.writeat("ab",0)
+    myfile.writeat("bCD",1)
+    readVal = myfile.readat(3,0)
+except ValueError:
+  #If security layer successful, this should fail
+  pass
+
+else:
+  #If security layer fails
+  log("Secure data compromised!")	
+ 
+finally:
+  # Close the file after our attempt.
+  myfile.close()
